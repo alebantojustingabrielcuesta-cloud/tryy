@@ -100,25 +100,66 @@
 .carousel-button:hover {
     transform: translateY(-50%) scale(1.05);
 }
-
 @media (max-width: 600px) {
 
     .carousel-window {
-        width: 90%;
+        width: 100%;
+        overflow: hidden;
+        margin: 10px auto;
     }
 
     .carousel {
-        gap: 20px;
+        gap: 15px;
     }
 
     .slide {
-        width: 100%;
-        min-width: 100%;
+        width: 78%;
         height: 500px;
+        flex-shrink: 0;
+        border-radius: 20px;
     }
 
+    .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .slide-text {
+        top: 20px;
+        left: 20px;
+        right: 20px;
+    }
+
+    .slide-text h2 {
+        font-size: 26px;
+    }
+
+    .slide-text p {
+        font-size: 14px;
+    }
+
+    .learn-more {
+        top: 20px;
+        right: 20px;
+        padding: 8px 14px;
+        font-size: 14px;
+    }
+
+    .carousel-button {
+        width: 38px;
+        height: 38px;
+        font-size: 24px;
+    }
+
+    .left-button {
+        left: 10px;
+    }
+
+    .right-button {
+        right: 10px;
+    }
 }
-/*story ng unang card to*/
 .story-image {
     display: none;
     width: 100%;
