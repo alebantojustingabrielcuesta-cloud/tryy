@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My first ever HTML</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="nav1">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Skills</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+    
+    <section class="hero">
+
+        <H1>Hi, Im Justin</H1>
+        <p>A BSIT-1J student</p>
+
+    </section>
+
+   <div class="carousel-window">
+
+    <button class="carousel-button left-button" onclick="moveLeft()">‹</button>
+    <button class="carousel-button right-button" onclick="moveCard()">›</button>
+
+    <section class="carousel">
+
+       <div class="slide slide-1">
+
+    <input type="checkbox" id="about-toggle">
+
+    <img src="about1.png" alt="about">
+    <img class="story-image" src="about1-story.png" alt="about story">
+
+    <div class="slide-text">
+        <h2>My Skills</h2>
+        <p>A short description.</p>
+    </div>
+
+   <label for="about-toggle" class="learn-more"></label>
+
+</div>
+
+     <div class="slide slide-2">
+        <img src="art-skill1.png" alt="My first skill">
+
+        <div class="slide-text">
+            <h2>My Second Skill</h2>
+            <p>Another short description.</p>
+        </div>
+
+        <a href="#" class="learn-more">Learn more</a>
+    </div>
+    <div class="slide">
+    <img src="images/skill3.jpg" alt="My third skill">
+
+    <div class="slide-text">
+        <h2>My Third Skill</h2>
+        <p>Another short description.</p>
+    </div>
+
+    <a href="#" class="learn-more">Learn more</a>
+</div>
+
+<div class="slide">
+    <img src="images/skill4.jpg" alt="My fourth skill">
+
+    <div class="slide-text">
+        <h2>My Fourth Skill</h2>
+        <p>Another short description.</p>
+    </div>
+
+    <a href="#" class="learn-more">Learn more</a>
+</div>
+
+<div class="slide">
+    <img src="images/skill5.jpg" alt="My fifth skill">
+
+    <div class="slide-text">
+        <h2>My Fifth Skill</h2>
+        <p>Another short description.</p>
+    </div>
+
+    <a href="#" class="learn-more">Learn more</a>
+</div>
+
+<div class="slide">
+    <img src="images/skill6.jpg" alt="My sixth skill">
+
+    <div class="slide-text">
+        <h2>My Sixth Skill</h2>
+        <p>Another short description.</p>
+    </div>
+
+    <a href="#" class="learn-more">Learn more</a>
+</div>
+<div class="slide">
+        <img src="about1.png" alt="about">
+
+        <div class="slide-text">
+            <h2>My Skills</h2>
+            <p>A short description.</p>
+        </div>
+
+        <a href="#" class="learn-more">Learn more</a>
+    </div>
+
+</section>
+</div>
+
+<script>
+
+    const carousel = document.querySelector(".carousel");
+    const carouselWindow = document.querySelector(".carousel-window");
+
+    let position = 0;
+    let cardNumber = 0;
+
+    function moveCard() {
+
+        cardNumber++;
+
+        position -= carousel.parentElement.offsetWidth + 20;
+
+        carousel.style.transform = `translateX(${position}px)`;
+
+        if (cardNumber === 6) {
+
+            document.getElementById("about-toggle").checked = false;
+
+            setTimeout(() => {
+
+                carousel.style.transition = "none";
+
+                position = 0;
+                cardNumber = 0;
+
+                carousel.style.transform = `translateX(${position}px)`;
+
+                setTimeout(() => {
+                    carousel.style.transition = "transform 0.6s ease";
+                }, 50);
+
+            }, 600);
+        }
+    }
+    function moveLeft() {
+
+    if (cardNumber > 0) {
+
+        cardNumber--;
+
+        position += carousel.parentElement.offsetWidth + 20;
+
+        carousel.style.transform = `translateX(${position}px)`;
+
+    }
+
+}
+
+    let slider = setInterval(moveCard, 5000);
+
+    carouselWindow.addEventListener("mouseenter", () => {
+        clearInterval(slider);
+    });
+
+    carouselWindow.addEventListener("mouseleave", () => {
+        slider = setInterval(moveCard, 5000);
+    });
+
+</script>
+
+    
+</body>
+</html>

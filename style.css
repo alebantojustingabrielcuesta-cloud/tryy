@@ -1,0 +1,137 @@
+.nav1 {
+    text-align: center;
+}
+/*picture to pre na part*/
+.carousel-window {
+    width: 950px;
+    overflow: hidden;
+    margin: 10px auto;
+    position: relative;
+}
+
+.carousel {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease;
+}
+.slide {
+    width: 950px;
+    height: 570px;
+    flex-shrink: 0;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/*eto text na dito*/
+.slide-text {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: black;
+    font-size: 20px;
+}
+.slide-text h2 {
+    font-size: 32px;
+    margin: 0;
+}
+.slide-text p {
+    font-size: 16px;
+    margin: 8px 0 0;
+}
+.slide-1 .slide-text {
+    color: black;
+}
+
+.slide-2 .slide-text {
+    color: white;
+}
+
+.learn-more {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    text-decoration: none;
+
+    background: #0077ed;
+    padding: 10px 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    
+}
+.learn-more:hover {
+    transform: scale(1.05);
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.4);
+    color: black;
+
+    font-size: 30px;
+    cursor: pointer;
+
+    z-index: 10;
+}
+
+.left-button {
+    left: 15px;
+}
+
+.right-button {
+    right: 15px;
+}
+
+.carousel-button:hover {
+    transform: translateY(-50%) scale(1.05);
+}
+
+@media (max-width: 600px) {
+    .carousel-window {
+        width: 90%;
+    }
+
+    .slide {
+        width: 100%;
+    }
+}
+/*story ng unang card to*/
+.story-image {
+    display: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#about-toggle:checked ~ .story-image {
+    display: block;
+}
+#about-toggle:checked ~ img:not(.story-image) {
+    display: none;
+}
+#about-toggle {
+    display: none;
+}
+
+#about-toggle ~ .learn-more::after {
+    content: "Learn more";
+}
+
+#about-toggle:checked ~ .learn-more::after {
+    content: "Back";
+}
